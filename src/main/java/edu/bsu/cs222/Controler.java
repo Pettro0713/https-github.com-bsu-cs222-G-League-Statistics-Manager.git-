@@ -17,6 +17,9 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+//ADD FUNCTIONALITY TO BUTTONS AND TEXT FIELDS IN THIS CLASS
+//Current code does nothing right now. Its from a tutorial and I didn't bother to remove it.
+
 public class Controler implements Initializable {
 
     @FXML
