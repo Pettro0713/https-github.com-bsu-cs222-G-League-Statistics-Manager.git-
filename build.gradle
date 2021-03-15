@@ -2,28 +2,32 @@ plugins {
     id 'java'
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.9'
-
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+sourceCompatibility = 11
+
+javafx {
+    modules = [ 'javafx.controls' , 'javafx.fxml' , 'javafx.graphics', 'javafx.base']
+    version = '15.0.1'
+}
+
+
+group 'io.github.Nlindholm'
+version '1.0'
 
 repositories {
     mavenCentral()
 }
 
+test {
+    useJUnitPlatform()
+}
+
 dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     compile group: 'com.jayway.jsonpath', name: 'json-path', version: '2.5.0'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.6.1'
 }
 
-test {
-    useJUnitPlatform()
-}
-javafx {
-    modules = [ 'javafx.controls' ]
-    version = "15.0.1"
-
-}
