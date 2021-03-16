@@ -6,8 +6,11 @@ file = open("playerid.txt","r")
 Search= input('Enter Full Name:')
 for block in str(file.read()).split('}'):
     if Search in block:
-        player_id= block [11:47]
+        player_id = block [11:47]
         print (player_id)
+    else:
+        print('player not found')
+        exit()
 file.close()
 
 conn = http.client.HTTPSConnection("api.sportradar.us")
