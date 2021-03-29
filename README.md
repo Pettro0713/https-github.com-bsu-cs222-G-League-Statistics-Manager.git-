@@ -7,5 +7,13 @@ This application is for fantasy league players who are gathering research on the
 * Peter Owolabi 
 * Nathan Lindholm 
 
+# Dependencies
+* Sport Radar API
+   * Liscencing: not specified (FOSS)
+* JUnit » 4.12
+   * Liscencing: Eclipse Public License 1.0 (FOSS)
+* json-Path » 2.5.0
+   * The Apache Software License, Version 2.0 (FOSS)
+
 ## Setup
 To run this application, clone this repository, and download the dependencies and plugins listed in build.gradle.
