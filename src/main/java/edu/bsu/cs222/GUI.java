@@ -18,8 +18,6 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-import java.util.Objects;
-
 public class GUI extends Application {
     Stage window;
     Scene mainScene;
@@ -109,7 +107,14 @@ public class GUI extends Application {
                 if (nameField.getText().isEmpty()) {
                     showAlert(gridPane.getScene().getWindow());
                 }
+
             }
+
+            //TODO Add search button functionality Here
+
+
+
+
 
             private void showAlert(Window owner) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
