@@ -19,8 +19,9 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 public class GUI extends Application {
-    Stage window;
-    Scene mainScene;
+    Stage mainWindow;
+    Stage secondStage = new Stage();
+
 
     public static void main(String[] args) {
         launch(args);
@@ -28,23 +29,23 @@ public class GUI extends Application {
 
     @Override
     public void start(Stage primaryStage){
-        window = primaryStage;
-        window.setTitle("G-League Manager");
+        mainWindow = primaryStage;
+        mainWindow.setTitle("G-League Manager");
 
         //Create grid pane
-        GridPane gridPane = createMainGUI();
+        GridPane gridPane = createMainWindow();
         // add UI functionalities to the grid pane
         addUIControls(gridPane);
         //create mainScene with grid pane
-        mainScene = new Scene(gridPane, 800, 500);
+        Scene mainScene = new Scene(gridPane, 800, 500);
         // set mainScene in primary stage
-        window.setScene(mainScene);
+        mainWindow.setScene(mainScene);
 
-        window.show();
+        mainWindow.show();
     }
 
 
-    private GridPane createMainGUI() {
+    private GridPane createMainWindow() {
         GridPane gridPane = new GridPane();
 
         gridPane.setAlignment(Pos.CENTER);
@@ -59,7 +60,6 @@ public class GUI extends Application {
         gridPane.setVgap(10);
 
         // Add Column Constraints
-
         // columnOneConstraints will be applied to all the nodes placed in column one.
         ColumnConstraints columnOneConstraints = new ColumnConstraints(100, 100, Double.MAX_VALUE);
         columnOneConstraints.setHalignment(HPos.RIGHT);
@@ -101,20 +101,19 @@ public class GUI extends Application {
         GridPane.setHalignment(searchButton, HPos.CENTER);
         GridPane.setMargin(searchButton, new Insets(20, 0,20,0));
 
+
         searchButton.setOnAction(new EventHandler<>() {
             @Override
             public void handle(javafx.event.ActionEvent actionEvent) {
                 if (nameField.getText().isEmpty()) {
                     showAlert(gridPane.getScene().getWindow());
+                    secondStage.hide();
+                } else {
+                    secondStage.setTitle("New Window");
+                    secondStage.show();
                 }
 
             }
-
-            //TODO Add search button functionality Here
-
-
-
-
 
             private void showAlert(Window owner) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
