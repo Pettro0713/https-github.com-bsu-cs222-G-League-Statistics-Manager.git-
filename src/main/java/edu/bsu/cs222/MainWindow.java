@@ -18,7 +18,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-public class GUI extends Application {
+public class MainWindow extends Application {
     Stage mainWindow;
     Stage secondStage = new Stage();
 
@@ -43,6 +43,8 @@ public class GUI extends Application {
 
         mainWindow.show();
     }
+
+
 
 
     private GridPane createMainWindow() {
@@ -109,6 +111,7 @@ public class GUI extends Application {
                     showAlert(gridPane.getScene().getWindow());
                     secondStage.hide();
                 } else {
+                    ///
                     secondStage.setTitle("New Window");
                     secondStage.show();
                 }
