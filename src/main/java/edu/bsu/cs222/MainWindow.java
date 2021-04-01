@@ -20,7 +20,6 @@ import javafx.stage.Window;
 
 public class MainWindow extends Application {
     Stage mainWindow;
-    Stage secondStage = new Stage();
 
 
     public static void main(String[] args) {
@@ -77,6 +76,9 @@ public class MainWindow extends Application {
 
 
     private void addUIControls(GridPane gridPane) {
+
+        SecondaryWindow secondaryWindow = new SecondaryWindow();
+
         // Add Header
         Label headerLabel = new Label("G-league Manager");
         headerLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
@@ -109,11 +111,8 @@ public class MainWindow extends Application {
             public void handle(javafx.event.ActionEvent actionEvent) {
                 if (nameField.getText().isEmpty()) {
                     showAlert(gridPane.getScene().getWindow());
-                    secondStage.hide();
                 } else {
-                    ///
-                    secondStage.setTitle("New Window");
-                    secondStage.show();
+                    secondaryWindow.showSecondaryWindow();
                 }
 
             }

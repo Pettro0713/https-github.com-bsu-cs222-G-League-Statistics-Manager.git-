@@ -5,7 +5,7 @@ public class Launcher {
     //Executes Manager to avoid runtime error
 
     public static void main(String[] args) {
-        GUI.main(args);
+        MainWindow.main(args);
     }
 }
 
