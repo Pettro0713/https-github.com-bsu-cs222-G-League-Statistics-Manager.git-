@@ -1,5 +1,6 @@
 package edu.bsu.cs222;
 
+import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -10,6 +11,15 @@ import javafx.stage.Stage;
         public SecondaryWindow() {
             secondaryWindow = new Stage();
             secondaryWindow.setTitle("New Window");
+
+            GridPane gridPane = createSecondaryWindow();
+
+            addSecondaryUIControls(gridPane);
+
+            Scene secondaryScene = new Scene(gridPane, 800, 500);
+
+            secondaryWindow.setScene(secondaryScene);
+
         }
 
         public void showSecondaryWindow(){
@@ -18,12 +28,18 @@ import javafx.stage.Stage;
 
 
         private GridPane createSecondaryWindow(){
+            //TODO create scene layout
+
             // create gridPane
-            return null;
+
+            GridPane gridPane = new GridPane();
+
+            return gridPane;
         }
 
-        private void addUIControls(){
-            //Add UI elements here
+        private void addSecondaryUIControls(GridPane gridPane){
+            //TODO UI functionalities Here
+
         }
 
 }
