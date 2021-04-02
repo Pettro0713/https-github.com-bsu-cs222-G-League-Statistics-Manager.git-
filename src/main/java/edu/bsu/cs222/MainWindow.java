@@ -6,10 +6,7 @@ import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
@@ -20,7 +17,6 @@ import javafx.stage.Window;
 
 public class MainWindow extends Application {
     Stage mainWindow;
-
 
     public static void main(String[] args) {
         launch(args);
@@ -112,9 +108,9 @@ public class MainWindow extends Application {
                 if (nameField.getText().isEmpty()) {
                     showAlert(gridPane.getScene().getWindow());
                 } else {
+                    //secondaryWindow.search(nameField.getText());
                     secondaryWindow.showSecondaryWindow();
                 }
-
             }
 
             private void showAlert(Window owner) {
@@ -125,10 +121,6 @@ public class MainWindow extends Application {
                 alert.initOwner(owner);
                 alert.show();
             }
-
         });
-
     }
-
-
 }
