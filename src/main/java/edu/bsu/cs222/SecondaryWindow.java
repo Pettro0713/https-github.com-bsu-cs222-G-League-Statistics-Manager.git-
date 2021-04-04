@@ -8,7 +8,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class SecondaryWindow extends MainWindow {
+public class SecondaryWindow {
     DisplayPlayerStatistics displayPlayerStatistics = new DisplayPlayerStatistics();
     Stage secondaryWindow;
 
