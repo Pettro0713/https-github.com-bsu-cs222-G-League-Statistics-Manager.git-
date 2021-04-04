@@ -5,13 +5,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SecondaryWindow extends MainWindow {
+    DisplayPlayerStatistics displayPlayerStatistics = new DisplayPlayerStatistics();
     Stage secondaryWindow;
 
     private final TextArea outputPoints = new TextArea();
@@ -34,9 +32,15 @@ public class SecondaryWindow extends MainWindow {
         outputHeight.setEditable(false);
         outputWeight.setEditable(false);
 
-        ScrollPane Pane = createSecondaryWindow();
+        outputPoints.setText(displayPlayerStatistics.pointsString);
+        outputRebounds.setText(displayPlayerStatistics.reboundsString);
+        outputBlocks.setText(displayPlayerStatistics.blocksString);
+        outputSteals.setText(displayPlayerStatistics.stealsString);
+        outputAssists.setText(displayPlayerStatistics.assistsString);
+        outputHeight.setText(displayPlayerStatistics.heightString);
+        outputWeight.setText(displayPlayerStatistics.weightString);
 
-        addSecondaryUIControls(Pane);
+        ScrollPane Pane = createSecondaryWindow();
 
         Scene secondaryScene = new Scene(Pane, 800, 500);
 
@@ -76,37 +80,4 @@ public class SecondaryWindow extends MainWindow {
         scrollPane.setContent(root);
         return scrollPane;
     }
-
-    private void addSecondaryUIControls(ScrollPane Pane) {
-        //TODO UI functionalities Here
-
-    }
-/*
-        public void search(String userInput){
-            //TODO implement model work here that takes this string, obtains data for the player and hands off data as a string to the appropriate outputField.
-
-            String pointsString; // = model work to get string of ppg player stat
-
-            String reboundsString; // = model work to get string of rebounds per game player stat
-
-            String blocksString; // = model work to get string of blocks per game player stat
-
-            String stealsString; // = model work to get string of steals per game player stat
-
-            String assistsString; // = model work to get string of assists per game player stat
-
-            String heightString; // = model work to get string of player height stat
-
-            String weightString; // = model work to get string of player weight stat
-
-            outputPoints.setText(pointsString);
-            outputRebounds.setText(reboundsString);
-            outputBlocks.setText(blocksString);
-            outputSteals.setText(stealsString);
-            outputAssists.setText(assistsString);
-            outputHeight.setText(heightString);
-            outputWeight.setText(weightString);
-        }
-
- */
 }

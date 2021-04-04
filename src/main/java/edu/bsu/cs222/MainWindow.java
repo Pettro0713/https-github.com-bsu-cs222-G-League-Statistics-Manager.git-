@@ -17,6 +17,7 @@ import javafx.stage.Window;
 
 public class MainWindow extends Application {
     Stage mainWindow;
+    FakeSportRadarProcessor processor = new FakeSportRadarProcessor();
 
     public static void main(String[] args) {
         launch(args);
@@ -103,21 +104,34 @@ public class MainWindow extends Application {
 
 
         searchButton.setOnAction(new EventHandler<>() {
+
             @Override
             public void handle(javafx.event.ActionEvent actionEvent) {
                 if (nameField.getText().isEmpty()) {
-                    showAlert(gridPane.getScene().getWindow());
-                } else {
-                    //secondaryWindow.search(nameField.getText());
+                    showAlert1(gridPane.getScene().getWindow());
+
+                } else if (processor.searchPlayerNames(nameField.getText())){
                     secondaryWindow.showSecondaryWindow();
+
+                } else {
+                    showAlert2(gridPane.getScene().getWindow());
                 }
             }
 
-            private void showAlert(Window owner) {
+            private void showAlert1(Window owner) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Form Error!");
                 alert.setHeaderText(null);
                 alert.setContentText("Please enter player name");
+                alert.initOwner(owner);
+                alert.show();
+            }
+
+            private void showAlert2(Window owner) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Player Not Found");
+                alert.setHeaderText(null);
+                alert.setContentText("The player entered does not exist.\nPlease enter another player name.");
                 alert.initOwner(owner);
                 alert.show();
             }
