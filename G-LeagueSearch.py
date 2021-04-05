@@ -14,7 +14,7 @@ for block in str(file.read()).split('}'):
 file.close()
 
 conn = http.client.HTTPSConnection("api.sportradar.us")
-conn.request("GET", "/nbdl/trial/v7/en/players/"+player_id+"/profile.json?api_key=f5gxhwerah7sn3sguu5ae5ea")
+conn.request("GET", "/nbdl/trial/v7/en/players/"+player_id+"/profile.json?api_key=********************")
 
 res = conn.getresponse()
 read= res.read()
