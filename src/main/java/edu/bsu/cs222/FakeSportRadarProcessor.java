@@ -18,6 +18,7 @@ public class FakeSportRadarProcessor {
 
 
     public static void main(String[] args) {
+        //Console Application
 
         FakeSportRadarProcessor processor = new FakeSportRadarProcessor();
 

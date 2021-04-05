@@ -108,17 +108,17 @@ public class MainWindow extends Application {
             @Override
             public void handle(javafx.event.ActionEvent actionEvent) {
                 if (nameField.getText().isEmpty()) {
-                    showAlert1(gridPane.getScene().getWindow());
+                    isNameFieldEmpty(gridPane.getScene().getWindow());
 
                 } else if (processor.searchPlayerNames(nameField.getText())){
                     secondaryWindow.showSecondaryWindow();
 
                 } else {
-                    showAlert2(gridPane.getScene().getWindow());
+                    isPlayerFound(gridPane.getScene().getWindow());
                 }
             }
 
-            private void showAlert1(Window owner) {
+            private void isNameFieldEmpty(Window owner) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Form Error!");
                 alert.setHeaderText(null);
@@ -127,7 +127,7 @@ public class MainWindow extends Application {
                 alert.show();
             }
 
-            private void showAlert2(Window owner) {
+            private void isPlayerFound(Window owner) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Player Not Found");
                 alert.setHeaderText(null);

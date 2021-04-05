@@ -9,7 +9,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SecondaryWindow {
-    DisplayPlayerStatistics displayPlayerStatistics = new DisplayPlayerStatistics();
+
+    StorePlayerStatistics storePlayerStatistics = new StorePlayerStatistics();
+
     Stage secondaryWindow;
 
     private final TextArea outputPoints = new TextArea();
@@ -32,13 +34,13 @@ public class SecondaryWindow {
         outputHeight.setEditable(false);
         outputWeight.setEditable(false);
 
-        outputPoints.setText(displayPlayerStatistics.pointsString);
-        outputRebounds.setText(displayPlayerStatistics.reboundsString);
-        outputBlocks.setText(displayPlayerStatistics.blocksString);
-        outputSteals.setText(displayPlayerStatistics.stealsString);
-        outputAssists.setText(displayPlayerStatistics.assistsString);
-        outputHeight.setText(displayPlayerStatistics.heightString);
-        outputWeight.setText(displayPlayerStatistics.weightString);
+        outputPoints.setText(storePlayerStatistics.pointsString);
+        outputRebounds.setText(storePlayerStatistics.reboundsString);
+        outputBlocks.setText(storePlayerStatistics.blocksString);
+        outputSteals.setText(storePlayerStatistics.stealsString);
+        outputAssists.setText(storePlayerStatistics.assistsString);
+        outputHeight.setText(storePlayerStatistics.heightString);
+        outputWeight.setText(storePlayerStatistics.weightString);
 
         ScrollPane Pane = createSecondaryWindow();
 
@@ -54,8 +56,7 @@ public class SecondaryWindow {
 
 
     private ScrollPane createSecondaryWindow() {
-        //TODO create scene layout
-        // create Pane
+
         ScrollPane scrollPane = new ScrollPane();
         VBox root = new VBox();
         root.setSpacing(20);
