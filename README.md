@@ -10,8 +10,6 @@ This application is for fantasy league players who are gathering research on the
 # Dependencies
 * SportRadar API -
    * Licensing is commercial and not open source.
-* JUnit 4.12 -
-   * Licensing: Eclipse Public License 1.0 (FOSS).
 * JSON-Path 2.5.0 -
    * Licensing: The Apache Software License 2.0 (FOSS).
 
