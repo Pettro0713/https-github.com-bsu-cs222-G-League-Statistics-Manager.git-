@@ -1,6 +1,6 @@
 package edu.bsu.cs222;
 
-public class StorePlayerStatistics {
+public class PlayerStatisticsStorage {
 
 
     FakeSportRadarProcessor fakeSportRadarProcessor = new FakeSportRadarProcessor();

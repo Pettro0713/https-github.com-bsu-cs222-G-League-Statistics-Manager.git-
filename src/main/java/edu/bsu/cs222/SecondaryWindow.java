@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class SecondaryWindow {
 
-    StorePlayerStatistics storePlayerStatistics = new StorePlayerStatistics();
+    PlayerStatisticsStorage playerStatisticsStorage = new PlayerStatisticsStorage();
 
     Stage secondaryWindow;
 
@@ -34,13 +34,13 @@ public class SecondaryWindow {
         outputHeight.setEditable(false);
         outputWeight.setEditable(false);
 
-        outputPoints.setText(storePlayerStatistics.pointsString);
-        outputRebounds.setText(storePlayerStatistics.reboundsString);
-        outputBlocks.setText(storePlayerStatistics.blocksString);
-        outputSteals.setText(storePlayerStatistics.stealsString);
-        outputAssists.setText(storePlayerStatistics.assistsString);
-        outputHeight.setText(storePlayerStatistics.heightString);
-        outputWeight.setText(storePlayerStatistics.weightString);
+        outputPoints.setText(playerStatisticsStorage.pointsString);
+        outputRebounds.setText(playerStatisticsStorage.reboundsString);
+        outputBlocks.setText(playerStatisticsStorage.blocksString);
+        outputSteals.setText(playerStatisticsStorage.stealsString);
+        outputAssists.setText(playerStatisticsStorage.assistsString);
+        outputHeight.setText(playerStatisticsStorage.heightString);
+        outputWeight.setText(playerStatisticsStorage.weightString);
 
         ScrollPane Pane = createSecondaryWindow();
 
