@@ -43,7 +43,7 @@ public class MainWindow extends Application {
 
 
 
-    private GridPane createMainWindow() {
+    public GridPane createMainWindow() {
         GridPane gridPane = new GridPane();
 
         gridPane.setAlignment(Pos.CENTER);
@@ -71,8 +71,7 @@ public class MainWindow extends Application {
         return gridPane;
     }
 
-
-    private void addUIControls(GridPane gridPane) {
+    public void addUIControls(GridPane gridPane) {
 
         SecondaryWindow secondaryWindow = new SecondaryWindow();
 
@@ -103,9 +102,8 @@ public class MainWindow extends Application {
         GridPane.setMargin(searchButton, new Insets(20, 0,20,0));
 
 
-        searchButton.setOnAction(new EventHandler<>() {
+        searchButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
 
-            @Override
             public void handle(javafx.event.ActionEvent actionEvent) {
                 if (nameField.getText().isEmpty()) {
                     isNameFieldEmpty(gridPane.getScene().getWindow());
@@ -118,7 +116,7 @@ public class MainWindow extends Application {
                 }
             }
 
-            private void isNameFieldEmpty(Window owner) {
+            public void isNameFieldEmpty(Window owner) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Form Error!");
                 alert.setHeaderText(null);
@@ -127,7 +125,7 @@ public class MainWindow extends Application {
                 alert.show();
             }
 
-            private void isPlayerFound(Window owner) {
+            public void isPlayerFound(Window owner) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Player Not Found");
                 alert.setHeaderText(null);
