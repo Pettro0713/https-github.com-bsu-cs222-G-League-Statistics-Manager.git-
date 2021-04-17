@@ -18,6 +18,7 @@ import javafx.stage.Window;
 public class MainWindow extends Application {
     Stage mainWindow;
     FakeSportRadarProcessor processor = new FakeSportRadarProcessor();
+    GridPane gridPane = new GridPane();
 
     public static void main(String[] args) {
         launch(args);
@@ -27,70 +28,47 @@ public class MainWindow extends Application {
     public void start(Stage primaryStage){
         mainWindow = primaryStage;
         mainWindow.setTitle("G-League Manager");
-
-        //Create grid pane
-        GridPane gridPane = createMainWindow();
+        createMainWindow();
         // add UI functionalities to the grid pane
-        addUIControls(gridPane);
+        addUIControls();
         //create mainScene with grid pane
         Scene mainScene = new Scene(gridPane, 800, 500);
         // set mainScene in primary stage
         mainWindow.setScene(mainScene);
-
         mainWindow.show();
     }
 
+    public void createMainWindow() {
+        setGridPaneSize();
+        addColumnConstraints();
+    }
 
-
-
-    public GridPane createMainWindow() {
-        GridPane gridPane = new GridPane();
-
+    public void setGridPaneSize(){
         gridPane.setAlignment(Pos.CENTER);
-
-        // Set a padding of 20px on each side
         gridPane.setPadding(new Insets(40, 40, 40, 40));
-
-        // Set the horizontal gap between columns
         gridPane.setHgap(10);
-
-        // Set the vertical gap between rows
         gridPane.setVgap(10);
+    }
 
-        // Add Column Constraints
+    public void addColumnConstraints(){
         // columnOneConstraints will be applied to all the nodes placed in column one.
         ColumnConstraints columnOneConstraints = new ColumnConstraints(100, 100, Double.MAX_VALUE);
         columnOneConstraints.setHalignment(HPos.RIGHT);
-
         // columnTwoConstraints will be applied to all the nodes placed in column two.
         ColumnConstraints columnTwoConstrains = new ColumnConstraints(200,200, Double.MAX_VALUE);
         columnTwoConstrains.setHgrow(Priority.ALWAYS);
-
         gridPane.getColumnConstraints().addAll(columnOneConstraints, columnTwoConstrains);
-
-        return gridPane;
     }
 
-    public void addUIControls(GridPane gridPane) {
-
+    public void addUIControls() {
         SecondaryWindow secondaryWindow = new SecondaryWindow();
+        addHeader();
+        addNameLabel();
 
-        // Add Header
-        Label headerLabel = new Label("G-league Manager");
-        headerLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-        gridPane.add(headerLabel, 0,0,2,1);
-        GridPane.setHalignment(headerLabel, HPos.CENTER);
-        GridPane.setMargin(headerLabel, new Insets(20, 0,20,0));
-
-        // Add Name Label
-        Label nameLabel = new Label("Full Name : ");
-        gridPane.add(nameLabel, 0,1);
-
-        // Add Name Text Field
+        //Add name field
         TextField nameField = new TextField();
         nameField.setPrefHeight(40);
         gridPane.add(nameField, 1,1);
-
 
         // Add Search Button
         Button searchButton = new Button("Search");
@@ -100,7 +78,6 @@ public class MainWindow extends Application {
         gridPane.add(searchButton, 0, 4, 2, 1);
         GridPane.setHalignment(searchButton, HPos.CENTER);
         GridPane.setMargin(searchButton, new Insets(20, 0,20,0));
-
 
         searchButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
 
@@ -134,5 +111,18 @@ public class MainWindow extends Application {
                 alert.show();
             }
         });
+    }
+
+    private void addNameLabel() {
+        Label nameLabel = new Label("Full Name : ");
+        gridPane.add(nameLabel, 0,1);
+    }
+
+    private void addHeader() {
+        Label headerLabel = new Label("G-league Manager");
+        headerLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+        gridPane.add(headerLabel, 0,0,2,1);
+        GridPane.setHalignment(headerLabel, HPos.CENTER);
+        GridPane.setMargin(headerLabel, new Insets(20, 0,20,0));
     }
 }

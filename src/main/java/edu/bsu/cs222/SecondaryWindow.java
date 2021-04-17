@@ -63,7 +63,7 @@ public class SecondaryWindow {
         root.setPrefSize(800, 500);
         root.setAlignment(Pos.CENTER_LEFT);
         root.getChildren().addAll(
-                new Label("Points Per Game:"),
+                new Label("Points Per Game: "),
                 outputPoints,
                 new Label("Rebounds Per Game: "),
                 outputRebounds,
