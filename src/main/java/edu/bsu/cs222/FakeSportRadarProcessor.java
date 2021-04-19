@@ -14,8 +14,8 @@ public class FakeSportRadarProcessor {
     String height = "6'3";
     String weight = "215 Pounds";
 
+    //Console Application
     public static void main(String[] args) {
-        //Console Application
         FakeSportRadarProcessor processor = new FakeSportRadarProcessor();
         System.out.println("Enter Player Name");
         Scanner console = new Scanner(System.in);
@@ -23,8 +23,7 @@ public class FakeSportRadarProcessor {
         processor.searchPlayerNames(input);
     }
 
-
-    public void playerNamesList() {
+    public void addNamesToList() {
         playerNamesList.add("Jaylen Hoard");
         playerNamesList.add("Omer Yurtseven");
         playerNamesList.add("Zavier Simpson");
@@ -33,7 +32,7 @@ public class FakeSportRadarProcessor {
     }
 
     public boolean searchPlayerNames(String playerName) {
-        playerNamesList();
+        addNamesToList();
         if(playerNamesList.contains(playerName)) {
             printStats(playerName);
             return true;

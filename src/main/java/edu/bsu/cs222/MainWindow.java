@@ -31,13 +31,13 @@ public class MainWindow extends Application {
     @Override
     public void start(Stage primaryStage){
         mainWindow = primaryStage;
-        mainWindow.setTitle("G-League Manager");
+        mainWindow.setTitle("|G-League Manager|");
         createMainWindow();
-        // add UI functionalities to the grid pane
+        //Add UI functionalities to the grid pane
         addUIControls();
-        //create mainScene with grid pane
+        //Create mainScene with grid pane
         Scene mainScene = new Scene(gridPane, 800, 500);
-        // set mainScene in primary stage
+        //Set mainScene in primary stage
         mainWindow.setScene(mainScene);
         mainWindow.show();
     }

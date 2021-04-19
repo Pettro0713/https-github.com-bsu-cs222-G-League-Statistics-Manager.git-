@@ -9,11 +9,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SecondaryWindow {
-
     PlayerStatisticsStorage playerStatisticsStorage = new PlayerStatisticsStorage();
-
     Stage secondaryWindow;
-
     private final TextArea outputPoints = new TextArea();
     private final TextArea outputRebounds = new TextArea();
     private final TextArea outputBlocks = new TextArea();
@@ -22,6 +19,7 @@ public class SecondaryWindow {
     private final TextArea outputHeight = new TextArea();
     private final TextArea outputWeight = new TextArea();
 
+    //Constructor
     public SecondaryWindow() {
         secondaryWindow = new Stage();
         secondaryWindow.setTitle("|Player Stats Window|");
@@ -43,11 +41,8 @@ public class SecondaryWindow {
         outputWeight.setText(playerStatisticsStorage.weightString);
 
         ScrollPane Pane = createSecondaryWindow();
-
         Scene secondaryScene = new Scene(Pane, 800, 500);
-
         secondaryWindow.setScene(secondaryScene);
-
     }
 
     public void showSecondaryWindow() {
@@ -56,7 +51,6 @@ public class SecondaryWindow {
 
 
     private ScrollPane createSecondaryWindow() {
-
         ScrollPane scrollPane = new ScrollPane();
         VBox root = new VBox();
         root.setSpacing(20);
