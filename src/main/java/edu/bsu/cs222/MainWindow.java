@@ -1,6 +1,7 @@
 package edu.bsu.cs222;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -16,9 +17,12 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 public class MainWindow extends Application {
-    Stage mainWindow;
     FakeSportRadarProcessor processor = new FakeSportRadarProcessor();
+    SecondaryWindow secondaryWindow = new SecondaryWindow();
     GridPane gridPane = new GridPane();
+    TextField nameField = new TextField();
+    Button searchButton = new Button("Search");
+    Stage mainWindow;
 
     public static void main(String[] args) {
         launch(args);
@@ -41,6 +45,8 @@ public class MainWindow extends Application {
     public void createMainWindow() {
         setGridPaneSize();
         addColumnConstraints();
+        addHeader();
+        addNameLabel();
     }
 
     public void setGridPaneSize(){
@@ -61,26 +67,10 @@ public class MainWindow extends Application {
     }
 
     public void addUIControls() {
-        SecondaryWindow secondaryWindow = new SecondaryWindow();
-        addHeader();
-        addNameLabel();
-
-        //Add name field
-        TextField nameField = new TextField();
-        nameField.setPrefHeight(40);
-        gridPane.add(nameField, 1,1);
-
-        // Add Search Button
-        Button searchButton = new Button("Search");
-        searchButton.setPrefHeight(40);
-        searchButton.setDefaultButton(true);
-        searchButton.setPrefWidth(100);
-        gridPane.add(searchButton, 0, 4, 2, 1);
-        GridPane.setHalignment(searchButton, HPos.CENTER);
-        GridPane.setMargin(searchButton, new Insets(20, 0,20,0));
-
-        searchButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
-
+        addNameField();
+        addSearchButton();
+        searchButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
             public void handle(javafx.event.ActionEvent actionEvent) {
                 if (nameField.getText().isEmpty()) {
                     isNameFieldEmpty(gridPane.getScene().getWindow());
@@ -92,7 +82,6 @@ public class MainWindow extends Application {
                     isPlayerFound(gridPane.getScene().getWindow());
                 }
             }
-
             public void isNameFieldEmpty(Window owner) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Form Error!");
@@ -111,6 +100,20 @@ public class MainWindow extends Application {
                 alert.show();
             }
         });
+    }
+
+    private void addSearchButton(){
+        searchButton.setPrefHeight(40);
+        searchButton.setDefaultButton(true);
+        searchButton.setPrefWidth(100);
+        gridPane.add(searchButton, 0, 4, 2, 1);
+        GridPane.setHalignment(searchButton, HPos.CENTER);
+        GridPane.setMargin(searchButton, new Insets(20, 0,20,0));
+    }
+
+    private void addNameField(){
+        nameField.setPrefHeight(40);
+        gridPane.add(nameField, 1,1);
     }
 
     private void addNameLabel() {
