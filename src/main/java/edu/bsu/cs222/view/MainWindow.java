@@ -1,4 +1,4 @@
-package edu.bsu.cs222;
+package edu.bsu.cs222.view;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -15,9 +15,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-
+//private for everything exept start
 public class MainWindow extends Application {
-    FakeSportRadarProcessor processor = new FakeSportRadarProcessor();
+
+    private FakeSportRadarProcessor processor = new FakeSportRadarProcessor();
     SecondaryWindow secondaryWindow = new SecondaryWindow();
     GridPane gridPane = new GridPane();
     TextField nameField = new TextField();
@@ -33,11 +34,8 @@ public class MainWindow extends Application {
         mainWindow = primaryStage;
         mainWindow.setTitle("|G-League Manager|");
         createMainWindow();
-        //Add UI functionalities to the grid pane
         addUIControls();
-        //Create mainScene with grid pane
         Scene mainScene = new Scene(gridPane, 800, 500);
-        //Set mainScene in primary stage
         mainWindow.setScene(mainScene);
         mainWindow.show();
     }
@@ -57,10 +55,8 @@ public class MainWindow extends Application {
     }
 
     public void addColumnConstraints(){
-        // columnOneConstraints will be applied to all the nodes placed in column one.
         ColumnConstraints columnOneConstraints = new ColumnConstraints(100, 100, Double.MAX_VALUE);
         columnOneConstraints.setHalignment(HPos.RIGHT);
-        // columnTwoConstraints will be applied to all the nodes placed in column two.
         ColumnConstraints columnTwoConstrains = new ColumnConstraints(200,200, Double.MAX_VALUE);
         columnTwoConstrains.setHgrow(Priority.ALWAYS);
         gridPane.getColumnConstraints().addAll(columnOneConstraints, columnTwoConstrains);

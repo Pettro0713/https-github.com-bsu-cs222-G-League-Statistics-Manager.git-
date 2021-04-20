@@ -1,4 +1,6 @@
-package edu.bsu.cs222;
+package edu.bsu.cs222.view;
+
+import edu.bsu.cs222.view.FakeSportRadarProcessor;
 
 public class PlayerStatisticsStorage {
     FakeSportRadarProcessor fakeSportRadarProcessor = new FakeSportRadarProcessor();
