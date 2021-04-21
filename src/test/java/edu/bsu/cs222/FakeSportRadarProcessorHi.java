@@ -4,7 +4,7 @@ import edu.bsu.cs222.view.FakeSportRadarProcessor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class FakeSportRadarProcessorTest {
+public class FakeSportRadarProcessorHi {
     FakeSportRadarProcessor processor = new FakeSportRadarProcessor();
 
     @Test
