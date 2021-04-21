@@ -4,7 +4,7 @@ import edu.bsu.cs222.model.PlayerNameGetter;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class PlayerNameGetterHi {
+public class PlayerNameGetterTest {
 
     @Test
     public void getPlayerIDTest(){
