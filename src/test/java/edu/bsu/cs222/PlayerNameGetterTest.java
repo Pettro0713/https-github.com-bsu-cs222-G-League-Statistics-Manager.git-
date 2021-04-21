@@ -1,15 +1,14 @@
 package edu.bsu.cs222;
 
+import edu.bsu.cs222.model.PlayerNameGetter;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
 public class PlayerNameGetterTest {
 
-    PlayerNameGetter input = new PlayerNameGetter();
-
     @Test
     public void getPlayerIDTest(){
-
-        Assertions.assertEquals("hi",input.getplayerName());
+        PlayerNameGetter nameGetter = new PlayerNameGetter();
+        Assertions.assertEquals("hi",nameGetter.getPlayerName());
     }
 }

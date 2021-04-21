@@ -1,5 +1,6 @@
 package edu.bsu.cs222;
 
+import edu.bsu.cs222.model.SportsRadarUrl;
 import org.junit.Test;
 import java.io.IOException;
 
