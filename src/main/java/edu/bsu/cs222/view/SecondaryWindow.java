@@ -1,6 +1,5 @@
 package edu.bsu.cs222.view;
 
-import edu.bsu.cs222.view.PlayerStatisticsStorage;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -9,24 +8,22 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class SecondaryWindow {
+public class SecondaryWindow{
     PlayerStatisticsStorage playerStatisticsStorage = new PlayerStatisticsStorage();
-
     Stage secondaryWindow;
+
     private final TextArea outputPoints = new ReadOnlyTextArea();
     private final TextArea outputRebounds = new ReadOnlyTextArea();
-    private final TextArea outputBlocks = new TextArea();
+    private final TextArea outputBlocks = new ReadOnlyTextArea();
     private final TextArea outputSteals = new ReadOnlyTextArea();
-    private final TextArea outputAssists = new TextArea();
-    private final TextArea outputHeight = new TextArea();
-    private final TextArea outputWeight = new TextArea();
+    private final TextArea outputAssists = new ReadOnlyTextArea();
+    private final TextArea outputHeight = new ReadOnlyTextArea();
+    private final TextArea outputWeight = new ReadOnlyTextArea();
 
-    //Constructor
-    //DRY
     public SecondaryWindow() {
         secondaryWindow = new Stage();
         secondaryWindow.setTitle("|Player Stats Window|");
-        //necessary complexity
+
         outputPoints.setText(playerStatisticsStorage.pointsString);
         outputRebounds.setText(playerStatisticsStorage.reboundsString);
         outputBlocks.setText(playerStatisticsStorage.blocksString);

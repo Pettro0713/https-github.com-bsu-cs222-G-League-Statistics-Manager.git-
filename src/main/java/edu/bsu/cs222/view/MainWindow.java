@@ -15,15 +15,14 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-//private for everything exept start
+
 public class MainWindow extends Application {
 
-    private FakeSportRadarProcessor processor = new FakeSportRadarProcessor();
-    SecondaryWindow secondaryWindow = new SecondaryWindow();
-    GridPane gridPane = new GridPane();
-    TextField nameField = new TextField();
-    Button searchButton = new Button("Search");
-    Stage mainWindow;
+    private final FakeSportRadarProcessor processor = new FakeSportRadarProcessor();
+    private final SecondaryWindow secondaryWindow = new SecondaryWindow();
+    private final GridPane gridPane = new GridPane();
+    private final TextField nameField = new TextField();
+    private final Button searchButton = new Button("Search");
 
     public static void main(String[] args) {
         launch(args);
@@ -31,30 +30,29 @@ public class MainWindow extends Application {
 
     @Override
     public void start(Stage primaryStage){
-        mainWindow = primaryStage;
-        mainWindow.setTitle("|G-League Manager|");
+        primaryStage.setTitle("|G-League Manager|");
         createMainWindow();
         addUIControls();
         Scene mainScene = new Scene(gridPane, 800, 500);
-        mainWindow.setScene(mainScene);
-        mainWindow.show();
+        primaryStage.setScene(mainScene);
+        primaryStage.show();
     }
 
-    public void createMainWindow() {
+    private void createMainWindow() {
         setGridPaneSize();
         addColumnConstraints();
         addHeader();
         addNameLabel();
     }
 
-    public void setGridPaneSize(){
+    private void setGridPaneSize(){
         gridPane.setAlignment(Pos.CENTER);
         gridPane.setPadding(new Insets(40, 40, 40, 40));
         gridPane.setHgap(10);
         gridPane.setVgap(10);
     }
 
-    public void addColumnConstraints(){
+    private void addColumnConstraints(){
         ColumnConstraints columnOneConstraints = new ColumnConstraints(100, 100, Double.MAX_VALUE);
         columnOneConstraints.setHalignment(HPos.RIGHT);
         ColumnConstraints columnTwoConstrains = new ColumnConstraints(200,200, Double.MAX_VALUE);
@@ -62,23 +60,24 @@ public class MainWindow extends Application {
         gridPane.getColumnConstraints().addAll(columnOneConstraints, columnTwoConstrains);
     }
 
-    public void addUIControls() {
+    private void addUIControls() {
         addNameField();
         addSearchButton();
-        searchButton.setOnAction(new EventHandler<ActionEvent>() {
+        searchButton.setOnAction(new EventHandler<>() {
             @Override
             public void handle(javafx.event.ActionEvent actionEvent) {
                 if (nameField.getText().isEmpty()) {
                     isNameFieldEmpty(gridPane.getScene().getWindow());
 
-                } else if (processor.searchPlayerNames(nameField.getText())){
+                } else if (processor.searchPlayerNames(nameField.getText())) {
                     secondaryWindow.showSecondaryWindow();
 
                 } else {
                     isPlayerFound(gridPane.getScene().getWindow());
                 }
             }
-            public void isNameFieldEmpty(Window owner) {
+
+            private void isNameFieldEmpty(Window owner) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Form Error!");
                 alert.setHeaderText(null);
@@ -87,7 +86,7 @@ public class MainWindow extends Application {
                 alert.show();
             }
 
-            public void isPlayerFound(Window owner) {
+            private void isPlayerFound(Window owner) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Player Not Found");
                 alert.setHeaderText(null);
