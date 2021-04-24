@@ -2,8 +2,9 @@ package edu.bsu.cs222;
 
 import edu.bsu.cs222.model.SportsRadarUrl;
 import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class SportsRadarUrlTest {
 
@@ -12,5 +13,11 @@ public class SportsRadarUrlTest {
     @Test
     public void connectTest() throws IOException {
         connection.makeConnection();
+    }
+
+    @Test
+    public void returnedInputStreamTest() throws IOException {
+        InputStream inputStream = connection.makeConnection();
+        Assertions.assertNotNull(inputStream);
     }
 }
