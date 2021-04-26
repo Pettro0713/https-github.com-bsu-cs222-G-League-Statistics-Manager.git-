@@ -17,12 +17,6 @@ public class SportsRadarUrl {
         URL url = new URL("https://api.sportradar.us/nbdl/trial/v7/en/players/"+ playerID +"/profile.json?api_key=f5gxhwerah7sn3sguu5ae5ea");
         URLConnection connection = url.openConnection();
         connection.setRequestProperty("User-Agent", "(ndlindholm@bsu.edu)");
-        if(connection.getContent() == null) {
-            System.out.println("null input stream");
-            return InputStream.nullInputStream();
-        }
-        else{return connection.getInputStream();}
+        return connection.getInputStream();
     }
-
-
 }
