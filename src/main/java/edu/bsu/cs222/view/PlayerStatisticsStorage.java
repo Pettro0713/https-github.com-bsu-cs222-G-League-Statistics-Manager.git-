@@ -1,12 +1,13 @@
 package edu.bsu.cs222.view;
 
 public class PlayerStatisticsStorage {
-    FakeSportRadarProcessor fakeSportRadarProcessor = new FakeSportRadarProcessor();
-    String pointsString = fakeSportRadarProcessor.PPG;
-    String reboundsString = fakeSportRadarProcessor.RPG;
-    String blocksString = fakeSportRadarProcessor.BPG;
-    String stealsString  = fakeSportRadarProcessor.SPG;
-    String assistsString = fakeSportRadarProcessor.APG;
-    String heightString = fakeSportRadarProcessor.height;
-    String weightString = fakeSportRadarProcessor.weight;
+    private final FakeSportRadarProcessor fakeSportRadarProcessor = new FakeSportRadarProcessor();
+
+    public String pointsString = fakeSportRadarProcessor.PPG;
+    public String reboundsString = fakeSportRadarProcessor.RPG;
+    public String blocksString = fakeSportRadarProcessor.BPG;
+    public String stealsString  = fakeSportRadarProcessor.SPG;
+    public String assistsString = fakeSportRadarProcessor.APG;
+    public String heightString = fakeSportRadarProcessor.height;
+    public String weightString = fakeSportRadarProcessor.weight;
 }

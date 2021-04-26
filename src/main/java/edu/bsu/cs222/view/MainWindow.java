@@ -7,6 +7,10 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
@@ -22,14 +26,19 @@ public class MainWindow extends Application {
     private final GridPane gridPane = new GridPane();
     private final TextField nameField = new TextField();
     private final Button searchButton = new Button("Search");
+    private final Image icon = new Image("https://1000logos.net/wp-content/uploads/2018/09/Nba-Gatorade-League-logo.jpg");
+
+
 
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(Stage primaryStage){
+    public void start(Stage primaryStage) {
         primaryStage.setTitle("|G-League Manager|");
+        primaryStage.getIcons().add(icon);
+
         createMainWindow();
         addUIControls();
         Scene mainScene = new Scene(gridPane, 800, 500);
@@ -37,7 +46,7 @@ public class MainWindow extends Application {
         primaryStage.show();
     }
 
-    private void createMainWindow() {
+    private void createMainWindow()  {
         setGridPaneSize();
         addColumnConstraints();
         addHeader();
@@ -122,4 +131,6 @@ public class MainWindow extends Application {
         GridPane.setHalignment(headerLabel, HPos.CENTER);
         GridPane.setMargin(headerLabel, new Insets(20, 0,20,0));
     }
+
+
 }

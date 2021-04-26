@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FakeSportRadarProcessor {
-    ArrayList<String> playerNamesList = new ArrayList<>();
-    String position = "Point Guard";
-    String PPG = "28.4";
-    String RPG = "4.5";
-    String BPG = "2.4";
-    String APG = "9.6";
-    String SPG = "2.4";
-    String height = "6'3";
-    String weight = "215 Pounds";
+    private final ArrayList<String> playerNamesList = new ArrayList<>();
+    public String position = "Point Guard";
+    public String PPG = "28.4";
+    public String RPG = "4.5";
+    public String BPG = "2.4";
+    public String APG = "9.6";
+    public String SPG = "2.4";
+    public String height = "6'3";
+    public String weight = "215 Pounds";
 
     //Console Application
     public static void main(String[] args) {
