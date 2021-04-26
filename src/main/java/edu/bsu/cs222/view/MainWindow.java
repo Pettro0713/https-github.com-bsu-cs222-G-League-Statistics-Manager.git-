@@ -22,7 +22,6 @@ import javafx.stage.Window;
 public class MainWindow extends Application {
 
     private final SearchProcessor processor = new SearchProcessor();
-    private final SecondaryWindow secondaryWindow = new SecondaryWindow();
     private final GridPane gridPane = new GridPane();
     private final TextField nameField = new TextField();
     private final Button searchButton = new Button("Search");
@@ -76,6 +75,7 @@ public class MainWindow extends Application {
                     isNameFieldEmpty(gridPane.getScene().getWindow());
 
                 } else if (processor.searchPlayerNames(nameField.getText())) {
+                    SecondaryWindow secondaryWindow = new SecondaryWindow(processor);
                     secondaryWindow.showSecondaryWindow();
 
                 } else {

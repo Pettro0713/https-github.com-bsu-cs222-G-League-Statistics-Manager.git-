@@ -9,7 +9,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SecondaryWindow{
-    PlayerStatisticsStorage playerStatisticsStorage = new PlayerStatisticsStorage();
     Stage secondaryWindow;
 
     private final TextArea outputPoints = new ReadOnlyTextArea();
@@ -20,17 +19,17 @@ public class SecondaryWindow{
     private final TextArea outputHeight = new ReadOnlyTextArea();
     private final TextArea outputWeight = new ReadOnlyTextArea();
 
-    public SecondaryWindow() {
+    public SecondaryWindow(SearchProcessor processor) {
         secondaryWindow = new Stage();
         secondaryWindow.setTitle("|Player Stats Window|");
 
-        outputPoints.setText(playerStatisticsStorage.pointsString);
-        //outputRebounds.setText(playerStatisticsStorage.reboundsString);
-        //outputBlocks.setText(playerStatisticsStorage.blocksString);
-        //outputSteals.setText(playerStatisticsStorage.stealsString);
-        //outputAssists.setText(playerStatisticsStorage.assistsString);
-        //outputHeight.setText(playerStatisticsStorage.heightString);
-        //outputWeight.setText(playerStatisticsStorage.weightString);
+        outputPoints.setText(String.valueOf(processor.PPG));
+        outputRebounds.setText(String.valueOf(processor.RPG));
+        outputBlocks.setText(String.valueOf(processor.BPG));
+        outputSteals.setText(String.valueOf(processor.SPG));
+        outputAssists.setText(String.valueOf(processor.APG));
+        outputHeight.setText(String.valueOf(processor.height));
+        outputWeight.setText(String.valueOf(processor.weight));
 
         ScrollPane Pane = createSecondaryWindow();
         Scene secondaryScene = new Scene(Pane, 800, 500);

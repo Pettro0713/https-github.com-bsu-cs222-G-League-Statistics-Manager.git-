@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class InputStreamParserTest {
 
@@ -21,7 +22,7 @@ public class InputStreamParserTest {
 
     @Test
     public void parseTest() throws IOException {
-        Object firstName = parser.parseForStats("$..first_name");
+        Object firstName = parser.parseForStats("$[*]");
         Assertions.assertNotNull(firstName);
     }
 
