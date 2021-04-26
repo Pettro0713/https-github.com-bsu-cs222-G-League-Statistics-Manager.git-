@@ -20,6 +20,7 @@ public class PlayerIDGetter {
 
     public String getID() throws IOException {
         JSONArray ID = JsonPath.read(file,"$.."+name+".id");
+        if (ID.isEmpty()){return null;}
         StringBuilder build = new StringBuilder(ID.toJSONString());
         build.delete(38,40);
         build.delete(0,2);

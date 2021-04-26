@@ -28,8 +28,8 @@ public class SecondaryWindow{
         outputBlocks.setText(String.valueOf(processor.BPG));
         outputSteals.setText(String.valueOf(processor.SPG));
         outputAssists.setText(String.valueOf(processor.APG));
-        outputHeight.setText(String.valueOf(processor.height));
-        outputWeight.setText(String.valueOf(processor.weight));
+        outputHeight.setText(processor.height +" in");
+        outputWeight.setText(processor.weight +" lbs");
 
         ScrollPane Pane = createSecondaryWindow();
         Scene secondaryScene = new Scene(Pane, 800, 500);

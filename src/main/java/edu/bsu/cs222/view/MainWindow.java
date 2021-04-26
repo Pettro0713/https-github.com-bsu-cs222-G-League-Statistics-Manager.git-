@@ -19,6 +19,8 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+import java.io.IOException;
+
 public class MainWindow extends Application {
 
     private final SearchProcessor processor = new SearchProcessor();
@@ -74,12 +76,18 @@ public class MainWindow extends Application {
                 if (nameField.getText().isEmpty()) {
                     isNameFieldEmpty(gridPane.getScene().getWindow());
 
-                } else if (processor.searchPlayerNames(nameField.getText())) {
-                    SecondaryWindow secondaryWindow = new SecondaryWindow(processor);
-                    secondaryWindow.showSecondaryWindow();
-
                 } else {
-                    isPlayerFound(gridPane.getScene().getWindow());
+                    try {
+                        if (processor.searchPlayerNames(nameField.getText())) {
+                            SecondaryWindow secondaryWindow = new SecondaryWindow(processor);
+                            secondaryWindow.showSecondaryWindow();
+
+                        } else {
+                            isPlayerFound(gridPane.getScene().getWindow());
+                        }
+                    } catch (IOException e) {
+                        isPlayerFound(gridPane.getScene().getWindow());
+                    }
                 }
             }
 

@@ -28,34 +28,15 @@ public class SearchProcessor {
     public Object height;
     public Object weight;
 
-    //Console Application
-    public static void main(String[] args) throws IOException {
-        SearchProcessor processor = new SearchProcessor();
-        System.out.println("Enter Player Name");
-        Scanner console = new Scanner(System.in);
-        String input = console.nextLine();
-        PlayerIDGetter idGetter = new PlayerIDGetter(input);
-        String ID = idGetter.getID();
-        System.out.println(ID);
+    public boolean searchPlayerNames(String playerName) throws IOException {
+        PlayerIDGetter idGetter = new PlayerIDGetter(playerName);
+        String ID;
+        ID = idGetter.getID();
+        if (ID == null){return false;}
         SportsRadarUrl urlConnection = new SportsRadarUrl(ID);
-        InputStreamParser parser =  new InputStreamParser(urlConnection.makeConnection());
-        Object PPG = parser.parseForStats("$.seasons[0].teams[0].average.points");
-        System.out.println(PPG);
-    }
-
-    public boolean searchPlayerNames(String playerName) {
-        try {
-            PlayerIDGetter idGetter = new PlayerIDGetter(playerName);
-            String ID = idGetter.getID();
-            SportsRadarUrl urlConnection = new SportsRadarUrl(ID);
-            cloneInputStream(urlConnection.makeConnection());
-            getStatistics();
-            return true;
-        }
-        catch(IOException e){
-            System.out.println("Player not found!");
-            return false;
-        }
+        cloneInputStream(urlConnection.makeConnection());
+        getStatistics();
+        return true;
     }
 
     public void cloneInputStream(InputStream inputStream) throws IOException {
@@ -79,13 +60,13 @@ public class SearchProcessor {
         InputStreamParser SPGParser =  new InputStreamParser(fifthClone);
         InputStreamParser heightParser =  new InputStreamParser(sixthClone);
         InputStreamParser weightParser =  new InputStreamParser(seventhClone);
-        PPG = PPGParser.parseForStats("$.seasons[0].teams[0].average");
+        PPG = PPGParser.parseForStats("$.seasons[0].teams[0].average.points");
         RPG = RPGParser.parseForStats("$.seasons[0].teams[0].average.rebounds");
         BPG =  BPGParser.parseForStats("$.seasons[0].teams[0].average.blocks");
         APG = APGParser.parseForStats("$.seasons[0].teams[0].average.assists");
         SPG = SPGParser.parseForStats("$.seasons[0].teams[0].average.steals");
-        height =  heightParser.parseForStats("$..height");
-        weight =  weightParser.parseForStats("$..weight");
+        height =  heightParser.parseForStats("$.height");
+        weight =  weightParser.parseForStats("$.weight");
     }
 }
 
