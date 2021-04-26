@@ -1,21 +1,21 @@
 package edu.bsu.cs222.model;
 
+import com.jayway.jsonpath.JsonPath;
+import net.minidev.json.JSONArray;
+
 import java.io.File;
 import java.io.IOException;
-import java.util.Scanner;
 
-public class PlayerIDGetter {}
-/**
-    public static void getPlayerID(String playerName) throws IOException {
-        Scanner scanner = new Scanner(new File("resources/PlayerIDTest.txt"));
-        while (scanner.hasNext()) {
-            String[] block = "{".split(scanner.nextLine());
-            if (block.contains("fullname"));
+public class PlayerIDGetter {
 
+    private String name;
+    File file = new File("C:\\Users\\nates\\IdeaProjects\\G-League-Statistics-Manager\\src\\main\\resources\\newPlayerID.json");
 
-        }
+    public PlayerIDGetter(String name){
+        this.name = name;
     }
-    public static void main(String[] args) throws IOException{
-        getPlayerID("Jaylen");
+
+    public JSONArray getID() throws IOException {
+        return JsonPath.read(file,"$.."+name+".id");
     }
-**/
+}

@@ -21,14 +21,14 @@ public class InputStreamParserTest {
 
     @Test
     public void parseTest() throws IOException {
-        String firstName = (String) parser.parseForStats("$..first_name");
+        Object firstName = parser.parseForStats("$..first_name");
         Assertions.assertNotNull(firstName);
     }
 
     @Test
     public void parseForMultipleTest() throws IOException {
-        Double ppg = (Double) parser.parseForStats("$.seasons[0].teams[0].average.points");
-        boolean b = ppg == 6.9;
+        Object ppg = parser.parseForStats("$.seasons[0].teams[0].average.points");
+        boolean b = ppg.equals(6.9);
         Assertions.assertTrue(b);
     }
 }
