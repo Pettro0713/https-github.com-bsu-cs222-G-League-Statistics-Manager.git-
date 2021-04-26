@@ -8,7 +8,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class SecondaryWindow{
+public class StatisticsWindow {
     Stage secondaryWindow;
 
     private final TextArea outputPoints = new ReadOnlyTextArea();
@@ -19,7 +19,7 @@ public class SecondaryWindow{
     private final TextArea outputHeight = new ReadOnlyTextArea();
     private final TextArea outputWeight = new ReadOnlyTextArea();
 
-    public SecondaryWindow(SearchProcessor processor) {
+    public StatisticsWindow(SearchProcessor processor) {
         secondaryWindow = new Stage();
         secondaryWindow.setTitle("|Player Stats Window|");
 

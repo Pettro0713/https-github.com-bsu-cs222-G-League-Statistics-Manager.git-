@@ -21,7 +21,7 @@ import javafx.stage.Window;
 
 import java.io.IOException;
 
-public class MainWindow extends Application {
+public class Main extends Application {
 
     private final SearchProcessor processor = new SearchProcessor();
     private final GridPane gridPane = new GridPane();
@@ -77,8 +77,8 @@ public class MainWindow extends Application {
                 } else {
                     try {
                         if (processor.searchPlayerName(nameField.getText())) {
-                            SecondaryWindow secondaryWindow = new SecondaryWindow(processor);
-                            secondaryWindow.showSecondaryWindow();
+                            StatisticsWindow statisticsWindow = new StatisticsWindow(processor);
+                            statisticsWindow.showSecondaryWindow();
 
                         } else {
                             playerNotFound(gridPane.getScene().getWindow());
