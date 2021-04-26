@@ -21,14 +21,12 @@ import javafx.stage.Window;
 
 public class MainWindow extends Application {
 
-    private final FakeSportRadarProcessor processor = new FakeSportRadarProcessor();
+    private final SearchProcessor processor = new SearchProcessor();
     private final SecondaryWindow secondaryWindow = new SecondaryWindow();
     private final GridPane gridPane = new GridPane();
     private final TextField nameField = new TextField();
     private final Button searchButton = new Button("Search");
     private final Image icon = new Image("https://1000logos.net/wp-content/uploads/2018/09/Nba-Gatorade-League-logo.jpg");
-
-
 
     public static void main(String[] args) {
         launch(args);
