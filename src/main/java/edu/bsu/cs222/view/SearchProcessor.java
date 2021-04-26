@@ -3,6 +3,7 @@ package edu.bsu.cs222.view;
 import edu.bsu.cs222.model.InputStreamParser;
 import edu.bsu.cs222.model.PlayerIDGetter;
 import edu.bsu.cs222.model.SportsRadarUrl;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -27,20 +28,11 @@ public class SearchProcessor {
 
     public boolean searchPlayerName(String playerName) throws IOException {
         PlayerIDGetter idGetter = new PlayerIDGetter(playerName);
-        String ID = null;
-        try {
-            ID = idGetter.getID();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String ID = idGetter.getID();
         if (ID == null){return false;}
         SportsRadarUrl urlConnection = new SportsRadarUrl(ID);
         cloneInputStream(urlConnection.makeConnection());
-        try {
-            getStatistics();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        getStatistics();
         return true;
     }
 

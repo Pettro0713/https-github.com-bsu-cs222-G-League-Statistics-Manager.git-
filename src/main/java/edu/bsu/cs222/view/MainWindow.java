@@ -133,7 +133,7 @@ public class MainWindow extends Application {
     }
 
     private void addNameLabel() {
-        Label nameLabel = new Label("Full Name : ");
+        Label nameLabel = new Label("Player Full Name : ");
         gridPane.add(nameLabel, 0,1);
     }
 
