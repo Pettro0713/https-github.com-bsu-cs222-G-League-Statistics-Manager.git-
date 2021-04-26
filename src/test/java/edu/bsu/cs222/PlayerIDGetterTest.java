@@ -1,7 +1,6 @@
 package edu.bsu.cs222;
 
 import edu.bsu.cs222.model.PlayerIDGetter;
-import net.minidev.json.JSONArray;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 

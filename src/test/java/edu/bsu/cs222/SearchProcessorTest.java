@@ -20,8 +20,6 @@ public class SearchProcessorTest {
         boolean result = processor.searchPlayerNames("John Smith");
         Assertions.assertFalse(result);
     }
-
-
-    }
+}
 
 

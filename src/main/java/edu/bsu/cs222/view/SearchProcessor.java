@@ -3,13 +3,11 @@ package edu.bsu.cs222.view;
 import edu.bsu.cs222.model.InputStreamParser;
 import edu.bsu.cs222.model.PlayerIDGetter;
 import edu.bsu.cs222.model.SportsRadarUrl;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.LinkedHashMap;
-import java.util.Scanner;
+
 
 public class SearchProcessor {
 
