@@ -33,6 +33,7 @@ public class SearchProcessor {
             SportsRadarUrl urlConnection = new SportsRadarUrl(ID);
             InputStreamParser parser =  new InputStreamParser(urlConnection.makeConnection());
             PPG = (String) parser.parseForStats("$.seasons[0].teams[0].average.points");
+            System.out.println(PPG);
             return true;
         }
         catch(IOException e){

@@ -19,7 +19,10 @@ public class PlayerIDGetter {
     }
 
     public String getID() throws IOException {
-        JSONArray id = JsonPath.read(file,"$.."+name+".id");
-        return id.toJSONString();
+        JSONArray ID = JsonPath.read(file,"$.."+name+".id");
+        StringBuilder build = new StringBuilder(ID.toJSONString());
+        build.delete(38,40);
+        build.delete(0,2);
+        return build.toString();
     }
 }

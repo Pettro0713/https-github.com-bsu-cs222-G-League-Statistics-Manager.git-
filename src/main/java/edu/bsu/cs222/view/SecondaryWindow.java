@@ -25,12 +25,12 @@ public class SecondaryWindow{
         secondaryWindow.setTitle("|Player Stats Window|");
 
         outputPoints.setText(playerStatisticsStorage.pointsString);
-        outputRebounds.setText(playerStatisticsStorage.reboundsString);
-        outputBlocks.setText(playerStatisticsStorage.blocksString);
-        outputSteals.setText(playerStatisticsStorage.stealsString);
-        outputAssists.setText(playerStatisticsStorage.assistsString);
-        outputHeight.setText(playerStatisticsStorage.heightString);
-        outputWeight.setText(playerStatisticsStorage.weightString);
+        //outputRebounds.setText(playerStatisticsStorage.reboundsString);
+        //outputBlocks.setText(playerStatisticsStorage.blocksString);
+        //outputSteals.setText(playerStatisticsStorage.stealsString);
+        //outputAssists.setText(playerStatisticsStorage.assistsString);
+        //outputHeight.setText(playerStatisticsStorage.heightString);
+        //outputWeight.setText(playerStatisticsStorage.weightString);
 
         ScrollPane Pane = createSecondaryWindow();
         Scene secondaryScene = new Scene(Pane, 800, 500);
