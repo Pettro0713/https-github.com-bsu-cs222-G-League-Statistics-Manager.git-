@@ -1,5 +1,5 @@
 # G-League Statistics Manager
-This application is for fantasy league players who are gathering research on the NBA G-League. The user can specify career statistics they want to see from various G-League players such as points, rebounds, blocks, steals, position, height, and weight. The user will do this through a graphical user interface.
+This application is for fantasy league players who are gathering research on the NBA G-League. The user can obtain statistics for a searched player such as points, rebounds, blocks, steals, height, and weight. The user can search for players and see the statistics through a graphical user interface.
 
 # Developers
 * Clayton Becker 
