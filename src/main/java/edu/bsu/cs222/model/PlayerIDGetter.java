@@ -2,13 +2,17 @@ package edu.bsu.cs222.model;
 
 import com.jayway.jsonpath.JsonPath;
 import net.minidev.json.JSONArray;
+
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 public class PlayerIDGetter {
 
     private final String name;
-    File file = new File("C:\\Users\\nates\\IdeaProjects\\G-League-Statistics-Manager\\src\\main\\resources\\newPlayerID.json");
+
+    ClassLoader classLoader = this.getClass().getClassLoader();
+    File file = new File(Objects.requireNonNull(classLoader.getResource("newPlayerID.json")).getFile());
 
     public PlayerIDGetter(String name){
         this.name = "['"+name+"']";
