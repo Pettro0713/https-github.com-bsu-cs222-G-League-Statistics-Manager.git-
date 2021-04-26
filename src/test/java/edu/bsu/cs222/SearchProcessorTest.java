@@ -11,13 +11,13 @@ public class SearchProcessorTest {
 
     @Test
     public void testIsPlayerFound_true() throws IOException {
-        boolean result = processor.searchPlayerNames("Jaylen Hoard");
+        boolean result = processor.searchPlayerName("Jaylen Hoard");
         Assertions.assertTrue(result);
     }
 
     @Test
     public void testIsPlayerFound_false() throws IOException {
-        boolean result = processor.searchPlayerNames("John Smith");
+        boolean result = processor.searchPlayerName("John Smith");
         Assertions.assertFalse(result);
     }
 }

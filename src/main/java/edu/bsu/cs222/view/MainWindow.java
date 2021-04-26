@@ -37,7 +37,6 @@ public class MainWindow extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("|G-League Manager|");
         primaryStage.getIcons().add(icon);
-
         createMainWindow();
         addUIControls();
         Scene mainScene = new Scene(gridPane, 800, 500);
@@ -74,24 +73,32 @@ public class MainWindow extends Application {
             @Override
             public void handle(javafx.event.ActionEvent actionEvent) {
                 if (nameField.getText().isEmpty()) {
-                    isNameFieldEmpty(gridPane.getScene().getWindow());
-
+                    nameFieldIsEmpty(gridPane.getScene().getWindow());
                 } else {
                     try {
-                        if (processor.searchPlayerNames(nameField.getText())) {
+                        if (processor.searchPlayerName(nameField.getText())) {
                             SecondaryWindow secondaryWindow = new SecondaryWindow(processor);
                             secondaryWindow.showSecondaryWindow();
 
                         } else {
-                            isPlayerFound(gridPane.getScene().getWindow());
+                            playerNotFound(gridPane.getScene().getWindow());
                         }
                     } catch (IOException e) {
-                        isPlayerFound(gridPane.getScene().getWindow());
+                        networkConnectionFailure(gridPane.getScene().getWindow());
                     }
                 }
             }
 
-            private void isNameFieldEmpty(Window owner) {
+            private void networkConnectionFailure(Window owner){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Network Failure");
+                alert.setHeaderText(null);
+                alert.setContentText("Could not connect to the internet. Please check connection and try again.");
+                alert.initOwner(owner);
+                alert.show();
+            }
+
+            private void nameFieldIsEmpty(Window owner) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Form Error!");
                 alert.setHeaderText(null);
@@ -100,7 +107,7 @@ public class MainWindow extends Application {
                 alert.show();
             }
 
-            private void isPlayerFound(Window owner) {
+            private void playerNotFound(Window owner) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Player Not Found");
                 alert.setHeaderText(null);

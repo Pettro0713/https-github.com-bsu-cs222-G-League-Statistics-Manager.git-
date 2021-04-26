@@ -9,7 +9,6 @@ import java.util.Objects;
 public class PlayerIDGetter {
 
     private final String name;
-
     ClassLoader classLoader = this.getClass().getClassLoader();
     File file = new File(Objects.requireNonNull(classLoader.getResource("newPlayerID.json")).getFile());
 
