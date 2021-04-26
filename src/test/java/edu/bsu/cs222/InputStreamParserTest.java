@@ -2,12 +2,11 @@ package edu.bsu.cs222;
 
 import edu.bsu.cs222.model.InputStreamParser;
 import edu.bsu.cs222.model.SportsRadarUrl;
-import net.minidev.json.JSONArray;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+
 import java.io.IOException;
-import java.io.InputStream;
 
 public class InputStreamParserTest {
 
@@ -16,16 +15,20 @@ public class InputStreamParserTest {
 
     @Before
     public void setUp() throws IOException {
-        connection = new SportsRadarUrl("25556881-5c14-453e-b02d-bfb28073fb8d");
+        connection = new SportsRadarUrl("5a436b8f-bc86-45ae-8309-6802eb9412dd");
         parser = new InputStreamParser(connection.makeConnection());
     }
 
     @Test
-    public void parsingTest() throws IOException {
-        JSONArray name = parser.parseForStats();
-        boolean yes = name.contains("Jaylen");
-        boolean no = name.contains("sus");
-        Assertions.assertTrue(yes);
-        Assertions.assertFalse(no);
+    public void parseTest() throws IOException {
+        String firstName = (String) parser.parseForStats("$..first_name");
+        Assertions.assertNotNull(firstName);
+    }
+
+    @Test
+    public void parseForMultipleTest() throws IOException {
+        Double ppg = (Double) parser.parseForStats("$.seasons[0].teams[0].average.points");
+        boolean b = ppg == 6.9;
+        Assertions.assertTrue(b);
     }
 }
